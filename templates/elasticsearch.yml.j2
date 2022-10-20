@@ -80,3 +80,15 @@ xpack.notification.email:
         password: {{ es_mail_config['pass'] }}
         {%- endif %}
 {% endif %}
+
+{% if es_xpack_saml_config is defined %}
+{{ es_xpack_saml_config['realm'] }}:
+  order: {{ es_xpack_saml_config['order'] }}
+  attributes.principal: {{ es_xpack_saml_config['attributes.principal'] }}
+  attributes.groups: {{ es_xpack_saml_config['attributes.groups'] }}
+  idp.metadata.path: {{ es_xpack_saml_config['idp.metadata.path'] }}
+  idp.entity_id: {{ es_xpack_saml_config['idp.entity_id'] }}
+  sp.entity_id: {{ es_xpack_saml_config['sp.entity_id'] }}
+  sp.acs: {{ es_xpack_saml_config['sp.acs'] }}
+  sp.logout: {{ es_xpack_saml_config['sp.logout'] }}
+{% endif %}
